@@ -1,6 +1,5 @@
 #include "liquorSystem.h"
 
-
 arriveOrder arrive_input(arriveOrder arriveOrder){
   printf("入荷を受け付けます。お酒の銘柄、本数を入力してください。\n");
 
@@ -10,8 +9,6 @@ arriveOrder arrive_input(arriveOrder arriveOrder){
   printf("[お酒の本数:]");
   scanf("%d", &arriveOrder.numberOfLiquor);
 
-  // int i = arrive_check(arriveOrder.numberOfLiquor);
-  // printf("%d", i);
   printf("入荷が完了しました\n");
 
   return arriveOrder;
