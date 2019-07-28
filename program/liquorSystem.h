@@ -17,7 +17,6 @@ typedef struct{
 }ticket;
 
 typedef struct{
-  char liquorName[10];
+  char liquorName[1000];
   int  numberOfLiquor;
 }arriveOrder;
-
