@@ -7,16 +7,16 @@ typedef struct{
   char consumerName[10];
   char liquorName[10];
   int  numberOfLiquor;
-}shipmentOrder;
+} shipmentOrder;
 
 typedef struct{
   char consumerName[10];
   char liquorName[10];
   int  numberOfLiquor;
   int  orderNumber;
-}ticket;
+} ticket;
 
 typedef struct{
   char liquorName[1000];
   int  numberOfLiquor;
-}arriveOrder;
+} arriveOrder;
