@@ -37,7 +37,3 @@ void order(){
     recorddisp();
   }
 }
-
-int main(){
-  order();
-}
