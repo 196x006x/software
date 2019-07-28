@@ -15,12 +15,12 @@ void order(){
     // メソッド
   }
   else if(input_order == 2){
-    // メソッド
+    arrive_input();
   }
   else if(input_order == 3){
-    // メソッド
+    stockdisp();
   }
   else if(input_order == 4){
-    // メソッド
+    recorddisp();
   }
 }
