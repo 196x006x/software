@@ -17,6 +17,8 @@ void liquorSystem(){
 
   //readTicketList(ticketList);
 
+  stock = (liquor *)malloc(2 * sizeof(liquor));
+  ticketList = (ticket *)malloc(2 * sizeof(ticket));
   testStockAndTicketList(stock,ticketList);
 
   order(stock,ticketList);
@@ -42,10 +44,8 @@ void testStockAndTicketList(liquor *stock,ticket *ticketList){
     testLiquor.liquorName[i] = testName[i];
   }
 
-  printf("%s,%d\n",testLiquor.liquorName,testLiquor.numberOfLiquor);
-
-  stock = (liquor *)malloc(2 * sizeof(liquor)); 
-  stock[0] = testLiquor;
+  stock[0].liquorName = testLiquor.liquorName;
+  stock[0].numberOfLiquor = testLiquor.numberOfLiquor;
   stock[1] = nullLiquor;
 
   testTicket.consumerName = (char *)malloc(4 * sizeof(char));
@@ -58,7 +58,6 @@ void testStockAndTicketList(liquor *stock,ticket *ticketList){
     testTicket.liquorName[i] = testName[i];
   }
 
-  ticketList = (ticket *)malloc(2 * sizeof(ticket));
   ticketList[0] = testTicket;
   ticketList[1] = nullTicket;
 
@@ -67,6 +66,7 @@ void testStockAndTicketList(liquor *stock,ticket *ticketList){
 /*int main(void){
   liquor *stock;
   ticket *ticketList;
+
   
   testStockAndTicketList(stock,ticketList);
 
