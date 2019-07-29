@@ -1,18 +1,36 @@
 #include "liquorSystem.h"
 
-int check_order(int i){
-  if(i < 1 || i > 4){
-    return 1;
+void order(liquor *stock, ticket *ticketList);
+int input_order();
+int check_order(int i);
+
+void order(liquor *stock, ticket *ticketList){
+  // 入力画面
+  int input_order = input_order();
+
+  if(input_order == 1){
+    // 出荷依頼処理
+    shipment(stock);
+    return;
   }
-  else{
-    return 0;
+  else if(input_order == 2){
+    // 入荷依頼処理
+    arrive_input(stock);
+    return;
+  }
+  else if(input_order == 3){
+    // 在庫表示処理
+    stockdisp(stock);
+    return;
+  }
+  else if(input_order == 4){
+    // 出荷実績表示処理
+    recorddisp(ticketList);
+    return;
   }
 }
 
-void order(){
-
-  int input_order;
-
+int input_order(){
   do{
     printf("プラズマ酒店\n");
     printf("以下から行いたい項目を選び、1~4 のいずれかを入力してください。\n");
@@ -21,19 +39,16 @@ void order(){
     printf("3 : 在庫表示\n");
     printf("4 : 出荷実績表示\n");
     printf("[入力してください：]");
-    scanf("%d", &input_order);
-  } while(check_order(input_order));
+    scanf("%d", &i);
+  } while(check_order(i));
+  return i;
+}
 
-  if (input_order == 1){
-    // メソッド
+int check_order(int i){
+  if(i >= 1 & i <= 4){
+    return 0;
   }
-  else if(input_order == 2){
-    arrive_input();
-  }
-  else if(input_order == 3){
-    stockdisp();
-  }
-  else if(input_order == 4){
-    recorddisp();
+  else{
+    return 1;
   }
 }
