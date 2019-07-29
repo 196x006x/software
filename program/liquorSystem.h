@@ -1,22 +1,32 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define ticketDataFile "ayo"
 #define stockDataFile "hey"
 
-typedef struct{
-  char consumerName[10];
-  char liquorName[10];
-  int  numberOfLiquor;
-} shipmentOrder;
+liquor *stock;
+ticket *ticketList;
 
 typedef struct{
-  char consumerName[10];
-  char liquorName[10];
+  char *liquorName;
+  int  numberOfLiquor;
+}liquor;
+
+typedef struct{
+  char *consumerName;
+  char *liquorName;
+  int  numberOfLiquor;
+}shipmentOrder;
+
+typedef struct{
+  char *consumerName;
+  char *liquorName;
   int  numberOfLiquor;
   int  orderNumber;
-} ticket;
+}ticket;
 
 typedef struct{
-  char liquorName[1000];
+  char *liquorName;
   int  numberOfLiquor;
-} arriveOrder;
+}arriveOrder;
+
