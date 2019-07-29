@@ -4,6 +4,8 @@
 #define ticketDataFile "ayo"
 #define stockDataFile "hey"
 
+int orderNumberBase;
+
 typedef struct{
   char *liquorName;
   int  numberOfLiquor;
