@@ -4,13 +4,17 @@ void order(liquor *stock, ticket *ticketList);
 int input_order();
 int check_order(int i);
 
-void order(liquor *stock, ticket *ticketList){
+void order(liquor *stock, ticket *ticketList, int numberOfTicket){
   // 入力画面
   int inputOrder = input_order();
 
   if(inputOrder == 1){
     // 出荷依頼処理
-    shipment(stock);
+    ticket ticket;
+    do{
+      ticket = shipment(stock);
+    } while(tmp.consumerName == NULL)
+    ticketList[numberOfTicket] = ticket;
     return;
   }
   else if(inputOrder == 2){
