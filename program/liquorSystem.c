@@ -3,7 +3,7 @@
 void liquorSystem();
 void readStock(liquor *stock);
 void readTicketList(ticket *ticketList);
-void order(liquor *stock,ticket *ticketList);
+void order(liquor *stock,ticket *ticketList,int numberOfTicket);
 void writeStock(liquor *stock);
 void writeTicketList(ticket *ticketList);
 void testStockAndTicketList(liquor *stock,ticket *ticketList);
@@ -20,8 +20,9 @@ void liquorSystem(){
   stock = (liquor *)malloc(2 * sizeof(liquor));
   ticketList = (ticket *)malloc(2 * sizeof(ticket));
   testStockAndTicketList(stock,ticketList);
+  int numberOfTicket = 1;
 
-  order(stock,ticketList);
+  order(stock,ticketList,numberOfTicket);
 
   //writeStock(stock);
 

@@ -13,10 +13,11 @@ ticket shipment(liquor *stock){
   shipmentOrder thisOrder;
   int           thisOrderNumber;
   ticket        thisTicket;
+  printf("ayo%s\n",stock[0].liquorName);
 
   thisOrder = inputShipmentOrder();
 
-  thisOrderNumber   =  getOrderNumber();
+  thisOrderNumber  = getOrderNumber();
 
   if(doShipment(stock,thisOrder)){
     //出荷処理に失敗した場合は空の出荷伝票を作成する
@@ -98,19 +99,21 @@ int doShipment(liquor *stock,shipmentOrder order){
   int i = 0;
   char *name;
 
-  while((name = stock[i].liquorName) != NULL){
-    if(strcmp(name,order.liquorName) == 0){
+  while(stock[i].liquorName != NULL){
+    printf("%s\n%s\n",stock[i].liquorName,order.liquorName);
+    if(strcmp(stock[i].liquorName,order.liquorName) == 0){
       //名前がある場合
       if(stock[i].numberOfLiquor >= order.numberOfLiquor){
         //在庫が十分な場合
         printf("在庫が確認できました。出荷を行います。\n");
         stock[i].numberOfLiquor -= order.numberOfLiquor;
+	return 0;
       }
     }
     i++;
   }
 
-  printf("在庫が確認できませんでした.お手数で明日がもう一度初めからやり直してください。\n");
+  printf("在庫が確認できませんでした.お手数ですがもう一度初めからやり直してください。\n");
   return 1;
 }
 
