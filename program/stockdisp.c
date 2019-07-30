@@ -7,7 +7,7 @@ void stockdisp(liquor *stock){
   printf("--------\n");
   int i = 0;
   while(stock[i].liquorName != NULL){
-    printf("・%c  ", stock[i].liquorName);
+    printf("・%s  ", stock[i].liquorName);
     printf("%d本", stock[i].numberOfLiquor);
     i++;
   }
