@@ -1,5 +1,7 @@
 #include "liquorSystem.h"
 
+void liquorSystem();
+
 int main(void){
 
   liquorSystem();
