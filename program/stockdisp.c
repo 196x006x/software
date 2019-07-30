@@ -1,7 +1,5 @@
 #include "liquorSystem.h"
 
-void stockdisp(liquor *stock);
-
 void stockdisp(liquor *stock){
   printf("在庫の表示を行います。\n");
   printf("--------\n");
