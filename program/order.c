@@ -4,7 +4,7 @@ void order(liquor *stock, ticket *ticketList, int numberOfTicket);
 int input_order();
 int check_order(int i);
 ticket shipment(liquor *stock);
-void arrive_input(liquor *stock);
+void arrive(liquor *stock);
 void stockdisp(liquor *stock);
 void recorddisp(ticket *ticketList);
 
@@ -23,7 +23,7 @@ void order(liquor *stock, ticket *ticketList, int numberOfTicket){
   }
   else if(inputOrder == 2){
     // 入荷依頼処理
-    arrive_input(stock);
+    arrive(stock);
     return;
   }
   else if(inputOrder == 3){
