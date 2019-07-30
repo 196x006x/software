@@ -3,6 +3,10 @@
 void order(liquor *stock, ticket *ticketList);
 int input_order();
 int check_order(int i);
+ticket shipment(liquor *stock);
+void arrive_input(liquor *stock);
+void stockdisp(liquor *stock);
+void recorddisp(ticket *ticketList);
 
 void order(liquor *stock, ticket *ticketList, int numberOfTicket){
   // 入力画面
@@ -13,7 +17,7 @@ void order(liquor *stock, ticket *ticketList, int numberOfTicket){
     ticket ticket;
     do{
       ticket = shipment(stock);
-    } while(tmp.consumerName == NULL)
+    } while(ticket.consumerName == NULL);
     ticketList[numberOfTicket] = ticket;
     return;
   }
