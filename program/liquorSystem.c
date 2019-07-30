@@ -1,6 +1,5 @@
 #include "liquorSystem.h"
 
-void liquorSystem();
 void readStock(liquor *stock);
 void readTicketList(ticket *ticketList);
 void order(liquor *stock,ticket *ticketList,int numberOfTicket);
@@ -53,7 +52,7 @@ void testStockAndTicketList(liquor *stock,ticket *ticketList){
   testTicket.liquorName = (char *)malloc(4 * sizeof(char));
   testTicket.numberOfLiquor = 3;
   testTicket.orderNumber    = 441;
-  
+
   for(i = 0;i < 4;i++){
     testTicket.consumerName[i] = testName[i];
     testTicket.liquorName[i] = testName[i];
@@ -68,10 +67,9 @@ void testStockAndTicketList(liquor *stock,ticket *ticketList){
   liquor *stock;
   ticket *ticketList;
 
-  
+
   testStockAndTicketList(stock,ticketList);
 
   return 0;
 
   }*/
-  
