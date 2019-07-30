@@ -1,6 +1,6 @@
 #include "liquorSystem.h"
 
-void order(liquor *stock, ticket *ticketList);
+void order(liquor *stock, ticket *ticketList, int numberOfTicket);
 int input_order();
 int check_order(int i);
 ticket shipment(liquor *stock);
