@@ -1,7 +1,7 @@
 #include "liquorSystem.h"
 
 //入力を受け付ける
-shipmentOrder inputShipmentOrder();
+void inputShipmentOrder(shipmentOrder *order);
 //注文番号を取得
 int         getOrderNumber();
 //在庫を確認し出荷を行う 返り値は1or0 条件判定に用いる 1 = error
@@ -10,30 +10,28 @@ int         doShipment(liquor *stock,shipmentOrder order);
 ticket      printTicket(char *cName,char *lName,int nOfL,int oN);
 
 ticket shipment(liquor *stock){
-  shipmentOrder thisOrder;
+  shipmentOrder *thisOrder;
   int           thisOrderNumber;
   ticket        thisTicket;
-  printf("ayo%s\n",stock[0].liquorName);
 
-  thisOrder = inputShipmentOrder();
+  thisOrder = (shipmentOrder *)malloc(sizeof(shipmentOrder));
+  inputShipmentOrder(thisOrder);
 
   thisOrderNumber  = getOrderNumber();
 
-  if(doShipment(stock,thisOrder)){
+  if(doShipment(stock,*thisOrder)){
     //出荷処理に失敗した場合は空の出荷伝票を作成する
     thisTicket = printTicket(NULL,NULL,0,0);
     return thisTicket;
   }
 
-  thisTicket = printTicket(thisOrder.consumerName,thisOrder.liquorName,thisOrder.numberOfLiquor,thisOrderNumber);
+  thisTicket = printTicket(thisOrder->consumerName,thisOrder->liquorName,thisOrder->numberOfLiquor,thisOrderNumber);
 
   return thisTicket;
 
 }
 
-shipmentOrder inputShipmentOrder(){
-  //返り値用の構造体
-  shipmentOrder order;
+void inputShipmentOrder(shipmentOrder *order){
   //本数
   int number;
   //index
@@ -49,16 +47,15 @@ shipmentOrder inputShipmentOrder(){
 
   //入力の文字数を調べる
   i = 0;
-  while(str[i] == '\0'){
+  while(str[i] != '\0'){
     i++;
   }
 
-  //メモリの確保
-  order.consumerName = (char *)malloc(i * sizeof(str[0]));
+  order->consumerName = (char *)malloc(i * sizeof(char));
 
   //値の代入
   for(j = 0;j <= i;j++){
-    order.consumerName[j] = str[j];
+    order->consumerName[j] = str[j];
   }
 
   //銘柄の入力
@@ -67,24 +64,23 @@ shipmentOrder inputShipmentOrder(){
 
   //入力の文字数を調べる
   i = 0;
-  while(str[i] == '\0'){
+  while(str[i] != '\0'){
     i++;
   }
 
-  //メモリの確保
-  order.liquorName = (char *)malloc(i * sizeof(str[0]));
+  order->liquorName = (char *)malloc(i * sizeof(char));
 
   //値の代入
   for(j = 0;j <= i;j++){
-    order.liquorName[j] = str[j];
+    order->liquorName[j] = str[j];
   }
 
   printf("[本数:]");
   scanf("%d",&number);
 
-  order.numberOfLiquor = number;
+  order->numberOfLiquor = number;
 
-  return order;
+  return;
 
 }
 
@@ -100,7 +96,7 @@ int doShipment(liquor *stock,shipmentOrder order){
   char *name;
 
   while(stock[i].liquorName != NULL){
-    printf("%s\n%s\n",stock[i].liquorName,order.liquorName);
+    //printf("%s\n%s\n",stock[i].liquorName,order.liquorName);
     if(strcmp(stock[i].liquorName,order.liquorName) == 0){
       //名前がある場合
       if(stock[i].numberOfLiquor >= order.numberOfLiquor){
