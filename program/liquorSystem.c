@@ -20,7 +20,7 @@ void liquorSystem(){
   numberOfTicket = getNumberOfTicket();
 
   //各データ数を元に領域を確保
-  stock = (liquor *)malloc((numberOfStock+1) * sizeof(liquor));
+  stock = (liquor *)malloc((numberOfStock+2) * sizeof(liquor));
   ticketList = (ticket *)malloc((numberOfTicket+2) * sizeof(ticket));
 
   readStock(stock);
