@@ -1,37 +1,50 @@
 #include "liquorSystem.h"
 
+int getNumberOfStock();
+int getNumberOfTicket();
 void readStock(liquor *stock);
 void readTicketList(ticket *ticketList);
-void order(liquor *stock,ticket *ticketList,int numberOfTicket,int numberOfStock);
+void order(liquor *stock,ticket *ticketList,int numberOfTicket);
 void writeStock(liquor *stock);
 void writeTicketList(ticket *ticketList);
-void testStockAndTicketList(liquor *stock,ticket *ticketList);
+//void testStockAndTicketList(liquor *stock,ticket *ticketList);
 
 void liquorSystem(){
   orderNumberBase = 0;
   liquor *stock;
   ticket *ticketList;
-
-  //readStock(stock);
-
-  //readTicketList(ticketList);
-
   int numberOfTicket = 1;
-  int numberOfStock = 1;
+  int numberOfStock  = 1;
 
-  stock = (liquor *)malloc((numberOfTicket+1) * sizeof(liquor));
-  ticketList = (ticket *)malloc((numberOfStock+1) * sizeof(ticket));
-  testStockAndTicketList(stock,ticketList);
+  numberOfStock = getNumberOfStock();
+  numberOfTicket = getNumberOfTicket();
 
-  order(stock,ticketList,numberOfTicket,numberOfStock);
+  //各データ数を元に領域を確保
+  stock = (liquor *)malloc((numberOfStock+1) * sizeof(liquor));
+  ticketList = (ticket *)malloc((numberOfTicket+2) * sizeof(ticket));
 
-  //writeStock(stock);
+  readStock(stock);
 
-  //writeTicketList(ticketList);
+  readTicketList(ticketList);
+
+  //仮のデータを用意する
+  //testStockAndTicketList(stock,ticketList);
+
+  //orderNumberBaseを作成。いいやり方が思いつかない。
+  orderNumberBase += numberOfTicket;
+
+  order(stock,ticketList,numberOfTicket);
+
+  writeStock(stock);
+
+  writeTicketList(ticketList);
+
+  free(stock);
+  free(ticketList);
 
 }
 
-void testStockAndTicketList(liquor *stock,ticket *ticketList){
+/*void testStockAndTicketList(liquor *stock,ticket *ticketList){
   liquor testLiquor;
   liquor nullLiquor = {NULL,0};
   ticket testTicket;
@@ -63,7 +76,7 @@ void testStockAndTicketList(liquor *stock,ticket *ticketList){
   ticketList[0] = testTicket;
   ticketList[1] = nullTicket;
 
-}
+}*/
 
 /*int main(void){
   liquor *stock;

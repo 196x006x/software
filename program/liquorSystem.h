@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-#define ticketDataFile "ayo"
-#define stockDataFile "hey"
+#define ticketDataFile "liquorTicketData.txt"
+#define stockDataFile "liquorStockData.txt"
 
 int orderNumberBase;
 

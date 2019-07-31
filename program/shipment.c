@@ -103,12 +103,13 @@ int doShipment(liquor *stock,shipmentOrder order){
         //在庫が十分な場合
         printf("在庫が確認できました。出荷を行います。\n");
         stock[i].numberOfLiquor -= order.numberOfLiquor;
-	return 0;
+	      return 0;
       }
     }
     i++;
   }
 
+  //在庫が確認できなかった場合は、一旦NULLの出荷伝票を作成してorderに返す
   printf("在庫が確認できませんでした.お手数ですがもう一度初めからやり直してください。\n");
   return 1;
 }
