@@ -91,6 +91,7 @@ void readStock(liquor *stock){
 
   //最後に今後の処理のためのNULLデータを挿入
   stock[indexStock] = nullStock;
+  stock[indexStock+1] = nullStock;
 
   fclose(fp);
 }
