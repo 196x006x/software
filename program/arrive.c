@@ -10,7 +10,6 @@ void arrive(liquor *stock){
   thisOrder = (arriveOrder *)malloc(sizeof(arriveOrder));
   inputArriveOrder(thisOrder);
   addOrderToStock(stock, *thisOrder);
-
   printf("入荷が完了しました\n");
 }
 
@@ -60,8 +59,8 @@ void addOrderToStock(liquor *stock, arriveOrder order){
     i++;
   }
   if(n==0){
-    stock[i+1].liquorName = order.liquorName;
-    stock[i+1].numberOfLiquor = order.numberOfLiquor;
+    stock[i].liquorName = order.liquorName;
+    stock[i].numberOfLiquor = order.numberOfLiquor;
   }
   return;
 }
