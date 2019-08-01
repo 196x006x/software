@@ -53,7 +53,7 @@ void addOrderToStock(liquor *stock, arriveOrder order){
   int n=0;
   while(stock[i].liquorName!=NULL){
     if(strcmp(stock[i].liquorName, order.liquorName) == 0){
-      stock[i].numberOfLiquor += 1;
+      stock[i].numberOfLiquor += order.numberOfLiquor;
       n++;
     }
     i++;
