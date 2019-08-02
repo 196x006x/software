@@ -2,6 +2,7 @@
 
 int input_order();
 int check_order(int i);
+void finish_message();
 ticket shipment(liquor *stock);
 void arrive(liquor *stock);
 void stockdisp(liquor *stock);
@@ -18,21 +19,26 @@ void order(liquor *stock, ticket *ticketList, int numberOfTicket){
       ticket = shipment(stock);
     } while(ticket.consumerName == NULL);
     ticketList[numberOfTicket] = ticket;
+    finish_message();
     return;
   }
   else if(inputOrder == 2){
     // 入荷依頼処理
     arrive(stock);
+    finish_message();
     return;
   }
+
   else if(inputOrder == 3){
     // 在庫表示処理
     stockdisp(stock);
+    finish_message();
     return;
   }
   else if(inputOrder == 4){
     // 出荷実績表示処理
     recorddisp(ticketList);
+    finish_message();
     return;
   }
 }
@@ -59,4 +65,8 @@ int check_order(int i){
   else{
     return 1;
   }
+}
+
+void finish_message(){
+  printf("システムを終了します。\n");
 }

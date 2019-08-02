@@ -10,5 +10,5 @@ void stockdisp(liquor *stock){
     i++;
   }
   printf("--------\n");
-  printf("システムを終了します。");
+  return;
 }

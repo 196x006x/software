@@ -29,6 +29,6 @@ void recorddisp(ticket *ticketList){
     recorddisp(ticketList);
   }
   else{
-    printf("システムを終了します。\n");
+    return;
   }
 }
